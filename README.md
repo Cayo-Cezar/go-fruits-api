@@ -1,10 +1,10 @@
-# 🍍 Go Fruits API
+# Go Fruits API
 
 API desenvolvida em Go que coleta dados nutricionais de frutas da [Fruityvice API](https://www.fruityvice.com/) diariamente e disponibiliza um relatório via endpoint HTTP.
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 - Crawler diário que importa frutas da Fruityvice API e salva no PostgreSQL
 - Endpoint `/api/fruits/report-sugar` que retorna um relatório de frutas classificadas por teor de açúcar
@@ -14,7 +14,7 @@ API desenvolvida em Go que coleta dados nutricionais de frutas da [Fruityvice AP
 
 ---
 
-## ⚙️ Tecnologias utilizadas
+## Tecnologias utilizadas
 
 - Go
 - Gin (framework HTTP)
@@ -25,14 +25,14 @@ API desenvolvida em Go que coleta dados nutricionais de frutas da [Fruityvice AP
 
 ---
 
-## 🛠️ Requisitos
+## Requisitos
 
 - Go instalado (versão 1.18+)
 - Docker e Docker Compose
 
 --- 
 
-## 📦 Como rodar o projeto
+## Como rodar o projeto
 
 # 1. Clone o repositório
 git clone https://github.com/Cayo-Cezar/go-fruits-api.git
@@ -46,7 +46,6 @@ go mod tidy
 
 # 4. Execute a aplicação
 go run main.go
-
 
 ## 5. Testando o endpoint 
 
@@ -66,9 +65,9 @@ http://localhost:8080/api/fruits/report-sugar
   "total_low_sugar": 36
 }
 
-## Visualização de dados 
+## 6. Visualização de dados 
 
-## 🔗 Acessando o Banco de Dados via pgAdmin
+# Acessando o Banco de Dados via pgAdmin
 
 Para visualizar os dados no banco de dados, siga os passos abaixo:
 
