@@ -66,16 +66,6 @@ http://localhost:8080/api/fruits/report-sugar
   "total_low_sugar": 36
 }
 
-## estrutura do projeto
+## Visualização de dados 
 
-go-fruits-api/
-├── clients/            # Client HTTP da Fruityvice
-├── database/           # Conexão com PostgreSQL
-├── handlers/           # Endpoints HTTP (Gin)
-├── models/             # Structs de domínio (Fruit, Nutrition)
-├── repositories/       # Acesso ao banco (GORM)
-├── schedulers/         # Cron job diário
-├── services/           # Lógica de negócio
-├── main.go             # Entry point
-├── docker-compose.yml
-└── README.md
+Para visualizar os dados no banco, o usuário deve acessar o pgAdmin via localhost:54321 e fazer login com o e-mail e a senha definidos no arquivo docker-compose.yml
