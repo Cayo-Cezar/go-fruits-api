@@ -68,4 +68,50 @@ http://localhost:8080/api/fruits/report-sugar
 
 ## Visualização de dados 
 
-Para visualizar os dados no banco, o usuário deve acessar o pgAdmin via localhost:54321 e fazer login com o e-mail e a senha definidos no arquivo docker-compose.yml
+## 🔗 Acessando o Banco de Dados via pgAdmin
+
+Para visualizar os dados no banco de dados, siga os passos abaixo:
+
+### 1. Acesse o pgAdmin
+Abra o navegador e vá até:
+
+http://localhost:54321
+
+Faça login utilizando o e-mail e a senha definidos no arquivo `docker-compose.yml`.  
+**Exemplo:**
+- **Email**: `cayo@email.com`
+- **Senha**: `123456`
+
+---
+
+### 2. Criar uma conexão com o banco
+
+Após o login, será necessário registrar o servidor do banco manualmente:
+
+**Passos:**
+1. Clique com o botão direito em **Servers**
+2. Selecione **Create → Server...**
+
+#### Aba "General"
+- **Name**: Escolha qualquer nome (ex: `GoFruitsDB`)
+
+#### Aba "Connection"
+- **Host**:
+  - No terminal do editor ou cmd, execute:
+    ```bash
+    docker-compose exec postgres sh
+    hostname -i
+    ```
+  - Copie o IP retornado (ex: `172.21.0.2`) e cole no campo **Host**
+
+- **Port**: `5432`  
+- **Username**: `root`  
+- **Password**: `root`  
+- **Database**: `root`
+
+---
+
+### 3. Finalize
+Clique em **Save**.  
+A conexão com o banco de dados estará pronta e visível no painel esquerdo do pgAdmin.
+
