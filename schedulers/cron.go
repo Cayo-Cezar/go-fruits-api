@@ -12,7 +12,7 @@ func StartCron(fruitService *services.FruitService) {
 	c := cron.New(cron.WithLocation(time.FixedZone("America/Sao_Paulo", -3*60*60)))
 
 	_, err := c.AddFunc("0 0 * * *", func() {
-		log.Println("🕛 Executando crawler (agendado)...")
+		log.Println("Executando crawler (agendado)...")
 		if err := fruitService.FetchAndSaveFruits(); err != nil {
 			log.Println("Erro ao importar frutas:", err)
 		}
