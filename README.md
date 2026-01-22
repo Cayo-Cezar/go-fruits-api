@@ -1,57 +1,57 @@
 # Go Fruits API
 
-API desenvolvida em Go que coleta dados nutricionais de frutas da [Fruityvice API](https://www.fruityvice.com/) diariamente e disponibiliza um relatório via endpoint HTTP.
+API developed in Go that daily collects nutritional data about fruits from the [Fruityvice API](https://www.fruityvice.com/) and exposes a report through an HTTP endpoint.
 
 ---
 
-## Funcionalidades
+## Features
 
-- Crawler diário que importa frutas da Fruityvice API e salva no PostgreSQL
-- Endpoint `/api/fruits/report-sugar` que retorna um relatório de frutas classificadas por teor de açúcar
-- Classificação:
-  - **High Sugar**: açúcar ≥ 10g/100g
-  - **Low Sugar**: açúcar < 10g/100g
+- Daily crawler that imports fruits from the Fruityvice API and saves them to PostgreSQL
+- `/api/fruits/report-sugar` endpoint that returns a report of fruits classified by sugar content
+- Classification:
+  - **High Sugar**: sugar ≥ 10g/100g
+  - **Low Sugar**: sugar < 10g/100g
 
 ---
 
-## Tecnologias utilizadas
+## Technologies Used
 
 - Go
-- Gin (framework HTTP)
+- Gin (HTTP framework)
 - GORM (ORM)
 - PostgreSQL (via Docker)
 - Cron jobs (`robfig/cron`)
-- PgAdmin para interface visual com o banco
+- PgAdmin for a visual database interface
 
 ---
 
-## Requisitos
+## Requirements
 
-- Go instalado (versão 1.18+)
-- Docker e Docker Compose
+- Go installed (version 1.18+)
+- Docker and Docker Compose
 
 --- 
 
-## Como rodar o projeto
+## How to Run the Project
 
-# 1. Clone o repositório
-git clone https://github.com/Cayo-Cezar/go-fruits-api.git
+# 1. Clone the repository
+git clone https://github.com/Cayo-Cezar/go-fruits-api.git  
 cd go-fruits-api
 
-# 2. Suba o banco de dados com Docker
+# 2. Start the database with Docker
 docker-compose up -d
 
-# 3. Instale as dependências Go
+# 3. Install Go dependencies
 go mod tidy
 
-# 4. Execute a aplicação
+# 4. Run the application
 go run main.go
 
-## 5. Testando o endpoint 
+## 5. Testing the endpoint
 
 http://localhost:8080/api/fruits/report-sugar
 
-# Exemplo de respostas
+# Response example
 {
   "high_sugar": [
     { "id": 1, "name": "Banana" },
@@ -65,43 +65,43 @@ http://localhost:8080/api/fruits/report-sugar
   "total_low_sugar": 36
 }
 
-## 6. Visualização de dados 
+## 6. Data Visualization
 
-# Acessando o Banco de Dados via pgAdmin
+# Accessing the Database via pgAdmin
 
-Para visualizar os dados no banco de dados, siga os passos abaixo:
+To view the data in the database, follow the steps below:
 
-### 1. Acesse o pgAdmin
-Abra o navegador e vá até:
+### 1. Access pgAdmin
+Open your browser and go to:
 
 http://localhost:54321
 
-Faça login utilizando o e-mail e a senha definidos no arquivo `docker-compose.yml`.  
-**Exemplo:**
+Log in using the email and password defined in the `docker-compose.yml` file.  
+**Example:**
 - **Email**: `cayo@email.com`
-- **Senha**: `123456`
+- **Password**: `123456`
 
 ---
 
-### 2. Criar uma conexão com o banco
+### 2. Create a database connection
 
-Após o login, será necessário registrar o servidor do banco manualmente:
+After logging in, you will need to manually register the database server:
 
-**Passos:**
-1. Clique com o botão direito em **Servers**
-2. Selecione **Create → Server...**
+**Steps:**
+1. Right-click on **Servers**
+2. Select **Create → Server...**
 
-#### Aba "General"
-- **Name**: Escolha qualquer nome (ex: `GoFruitsDB`)
+#### "General" tab
+- **Name**: Choose any name (e.g., `GoFruitsDB`)
 
-#### Aba "Connection"
+#### "Connection" tab
 - **Host**:
-  - No terminal do editor ou cmd, execute:
+  - In the editor terminal or command prompt, run:
     ```bash
     docker-compose exec postgres sh
     hostname -i
     ```
-  - Copie o IP retornado (ex: `172.21.0.2`) e cole no campo **Host**
+  - Copy the returned IP (e.g., `172.21.0.2`) and paste it into the **Host** field
 
 - **Port**: `5432`  
 - **Username**: `root`  
@@ -110,7 +110,6 @@ Após o login, será necessário registrar o servidor do banco manualmente:
 
 ---
 
-### 3. Finalize
-Clique em **Save**.  
-A conexão com o banco de dados estará pronta e visível no painel esquerdo do pgAdmin.
-
+### 3. Finish
+Click **Save**.  
+The database connection will be ready and visible in the left panel of pgAdmin.
